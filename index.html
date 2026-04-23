@@ -1,115 +1,50 @@
 <!DOCTYPE html>
-<html lang="uk" class="dark">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canopy ERP Enterprise | System v3.0</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-[#02040a] text-slate-200 overflow-hidden font-['Plus_Jakarta_Sans']">
-
-    <div id="preloader" class="fixed inset-0 z-[1000] bg-black flex flex-col items-center justify-center">
-        <div class="relative w-24 h-24">
-            <div class="absolute inset-0 border-4 border-blue-600/10 rounded-full"></div>
-            <div class="absolute inset-0 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-        </div>
-        <div class="mt-8 text-center">
-            <h2 class="text-[10px] uppercase tracking-[0.5em] text-blue-500 font-black mb-2">Canopy Core V3</h2>
-            <div id="loader-status" class="text-[9px] font-mono text-slate-600 uppercase tracking-widest">Завантаження інженерних модулів...</div>
-        </div>
-    </div>
-
-    <div id="app" class="h-screen flex flex-col opacity-0 transition-opacity duration-1000">
-        
-        <header class="h-14 border-b border-white/5 bg-[#0d1117]/80 backdrop-blur-xl flex items-center justify-between px-8 z-50">
-            <div class="flex items-center gap-6">
-                <div class="flex items-center gap-3 group cursor-pointer">
-                    <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center shadow-lg shadow-blue-600/20">
-                        <span class="font-black text-white text-sm">C</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-xs font-black text-white tracking-tighter uppercase">Canopy <span class="text-blue-500">ERP</span></span>
-                        <span class="text-[8px] font-bold text-slate-500 tracking-[0.2em] uppercase">Enterprise Edition</span>
-                    </div>
-                </div>
-                <nav class="ml-10">
-                    <ul class="flex gap-8 text-[10px] font-extrabold uppercase tracking-widest text-slate-400">
-                        <li class="nav-link active cursor-pointer hover:text-white transition-colors" data-page="3d-designer">Конструктор</li>
-                        <li class="nav-link cursor-pointer hover:text-white transition-colors" data-page="calc-engine">Розрахунки</li>
-                        <li class="nav-link cursor-pointer hover:text-white transition-colors" data-page="crm">Клієнти</li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="flex items-center gap-4">
-                <div id="timer" class="text-[10px] font-mono text-slate-500 bg-white/5 px-3 py-1 rounded">2026.04.23 | 19:20</div>
-                <button class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded text-[9px] font-black uppercase tracking-wider transition-all">Звіт PDF</button>
-            </div>
-        </header>
-
-        <div class="flex-grow flex overflow-hidden">
-            <aside id="sidebar" class="w-80 bg-[#0d1117] border-r border-white/5 blueprint-grid p-6 overflow-y-auto">
-                <section class="mb-8">
-                    <h3 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-6">Геометрія навісу</h3>
-                    <div id="dynamic-inputs" class="space-y-4"></div>
-                </section>
-            </aside>
-
-            <main class="flex-grow relative bg-[#010204]">
-                <div id="viewport" class="absolute inset-0"></div>
-                
-                <div class="absolute bottom-6 right-6 flex flex-col gap-2 pointer-events-none">
-                    <div class="bg-black/60 backdrop-blur-md p-4 rounded-xl border border-white/10 min-w-[200px]">
-                        <div class="text-[9px] text-slate-500 font-bold uppercase mb-1">Снігове навантаження</div>
-                        <div class="text-xl font-black text-white" id="hud-weight">0.00 <span class="text-xs font-light">кг</span></div>
-                    </div>
-                </div>
-            </main>
-        </div>
-
-        <footer class="h-6 bg-[#090c10] border-t border-white/5 px-6 flex items-center justify-between">
-            <div class="text-[8px] font-bold text-slate-600 uppercase tracking-widest">
-                System Health: <span class="text-green-500">Optimal</span> | GPU Acceleration: On
-            </div>
-            <div class="text-[8px] font-mono text-slate-700">© 2026 Melnichenko Tech</div>
-        </footer>
-    </div>
+    <title>Canopy ERP - Конструктор навісів</title>
+    <base href="/project-x-9000/">
     
-   <script src="https://hikolb45.github.io/project-x-9000/script.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/materials.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/physics.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/builder.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/textures.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/utils.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/lighting.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/environment.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/components.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/specification.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/price-engine.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/validation.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/camera-system.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/ui-events.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/exporter.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/history.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/screenshot-engine.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/blueprint-generator.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/social-api.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/layer-manager.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/animation-sequences.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/user-auth.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/cloud-sync.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/ar-module.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/mobile-optimizer.js"></script>
-    <script src="https://hikolb45.github.io/project-x-9000/global-init.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <div id="canvas-container"></div>
+        <div id="ui-layer"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="materials.js"></script>
+    <script src="physics.js"></script>
+    <script src="builder.js"></script>
+    <script src="textures.js"></script>
+    <script src="utils.js"></script>
+    <script src="lighting.js"></script>
+    <script src="environment.js"></script>
+    <script src="components.js"></script>
+    <script src="specification.js"></script>
+    <script src="price-engine.js"></script>
+    <script src="validation.js"></script>
+    <script src="camera-system.js"></script>
+    <script src="ui-events.js"></script>
+    <script src="exporter.js"></script>
+    <script src="history.js"></script>
+    <script src="screenshot-engine.js"></script>
+    <script src="blueprint-generator.js"></script>
+    <script src="social-api.js"></script>
+    <script src="layer-manager.js"></script>
+    <script src="animation-sequences.js"></script>
+    <script src="user-auth.js"></script>
+    <script src="cloud-sync.js"></script>
+    <script src="ar-module.js"></script>
+    <script src="mobile-optimizer.js"></script>
+    <script src="global-init.js"></script>
 </body>
 </html>
-
 
 
 
