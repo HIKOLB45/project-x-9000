@@ -1,0 +1,50 @@
+/* style.css - Глобальна дизайн-система */
+:root {
+    --primary: #3b82f6;
+    --border: rgba(255, 255, 255, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
+
+body { scrollbar-width: none; }
+::-webkit-scrollbar { display: none; }
+
+/* Інженерна сітка на фоні */
+.blueprint-grid {
+    background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 25px 25px;
+}
+
+/* Стиль полів вводу */
+.input-field {
+    width: 100%;
+    background: #010204;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    color: #fff;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    transition: 0.2s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.nav-link.active {
+    color: #fff;
+    border-bottom: 2px solid var(--primary);
+}
+
+/* Анімації */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.control-item { animation: slideIn 0.5s ease-out forwards; }
