@@ -1,0 +1,22 @@
+{
+  "short_name": "CanopyERP",
+  "name": "Canopy ERP Enterprise Edition v3.0",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3259/3259461.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3259/3259461.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#02040a",
+  "display": "standalone",
+  "scope": "./",
+  "theme_color": "#3b82f6",
+  "description": "Професійна інженерна платформа для проектування навісів"
+}
